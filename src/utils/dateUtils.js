@@ -40,3 +40,9 @@ export function weekDays(date = new Date()) {
 export function formatDate(date, options = { month: 'short', day: 'numeric' }) {
   return new Intl.DateTimeFormat('en-US', options).format(date)
 }
+export function getGreeting(hour = new Date().getHours()) {
+  if (hour >= 5 && hour < 12) return 'Good morning'
+  if (hour >= 12 && hour < 17) return 'Good afternoon'
+  if (hour >= 17 && hour < 21) return 'Good evening'
+  return 'Good night'
+}

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Flame, Target } from 'lucide-react'
 import { useHabits } from '../context/HabitContext'
 import { dailyCompletion, isCompleted, currentStreak } from '../utils/habitUtils'
-import { todayKey, weekDays, formatDate } from '../utils/dateUtils'
+import { todayKey, weekDays, formatDate, getGreeting } from '../utils/dateUtils'
 
 function Dashboard() {
   const { habits, toggleCompletion } = useHabits()
@@ -14,8 +14,8 @@ function Dashboard() {
   return (
     <section>
       <div className="page-heading">
-        <p className="eyebrow">Today</p>
-        <h1>Good morning 👋</h1>
+        <p className="eyebrow">{formatDate(new Date(), { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}</p>
+        <h1>{getGreeting()} 👋</h1>
         <p>Small steps every day lead to meaningful progress.</p>
       </div>
 

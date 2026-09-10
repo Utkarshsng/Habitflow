@@ -1,6 +1,5 @@
 import { Flame, MoreVertical, Pencil, Trash2 } from 'lucide-react'
 import { isCompleted, currentStreak } from '../../utils/habitUtils'
-import { todayKey } from '../../utils/dateUtils'
 
 function HabitCard({ habit, onToggle, onEdit, onDelete }) {
   const completed = isCompleted(habit)
@@ -24,7 +23,7 @@ function HabitCard({ habit, onToggle, onEdit, onDelete }) {
       </div>
       <div className="habit-card-bottom">
         <span className="streak"><Flame size={15} /> {streak} day streak</span>
-        <span className="today-status">{completed ? `Completed ${todayKey() === todayKey() ? 'today' : ''}` : 'Not completed'}</span>
+        <span className="today-status">{completed ? 'Completed today' : 'Not completed'}</span>
       </div>
     </article>
   )
